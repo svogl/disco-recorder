@@ -31,7 +31,7 @@
 
 // __attribute__ ((section (".psram_bss")))
 __attribute__ ((aligned (32)))
-uint32_t vin_buffer[800*480*2];
+uint32_t vin_buffer[VENC_WIDTH*VENC_HEIGHT*2];
 
 /* USER CODE END 0 */
 

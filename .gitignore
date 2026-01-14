@@ -1,0 +1,13 @@
+build
+mx.scratch
+!.settings
+.vscode
+.settings
+*~
+.cache
+
+# cube ide artifacts
+Debug
+
+# ai stuff (ignore for now)
+models

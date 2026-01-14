@@ -7,3 +7,6 @@
 [submodule "Appli/libs/stm32-mw-camera"]
 	path = Appli/libs/stm32-mw-camera
 	url = https://github.com/STMicroelectronics/stm32-mw-camera.git
+[submodule "Appli/libs/stm32-mw-venc-ewl"]
+	path = Appli/libs/stm32-mw-venc-ewl
+	url = https://github.com/STMicroelectronics/stm32-mw-venc-ewl.git
