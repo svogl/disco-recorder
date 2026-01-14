@@ -36,6 +36,7 @@ extern "C" {
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32n6xx_hal.h"
+
 #include "stm32n6xx_ll_ucpd.h"
 #include "stm32n6xx_ll_bus.h"
 #include "stm32n6xx_ll_cortex.h"
@@ -110,8 +111,6 @@ void Error_Handler(void);
 #define LCD_HSYNC_GPIO_Port GPIOB
 #define SD_D2_Pin GPIO_PIN_0
 #define SD_D2_GPIO_Port GPIOC
-#define VCP_TX_Pin GPIO_PIN_5
-#define VCP_TX_GPIO_Port GPIOE
 #define I2C2_SCL_Pin GPIO_PIN_14
 #define I2C2_SCL_GPIO_Port GPIOD
 #define LCD_B2_Pin GPIO_PIN_2
@@ -122,8 +121,6 @@ void Error_Handler(void);
 #define SD_CK_GPIO_Port GPIOC
 #define SD_D3_Pin GPIO_PIN_4
 #define SD_D3_GPIO_Port GPIOE
-#define VCP_RX_Pin GPIO_PIN_6
-#define VCP_RX_GPIO_Port GPIOE
 #define LCD_G4_Pin GPIO_PIN_15
 #define LCD_G4_GPIO_Port GPIOB
 #define SD_CMD_Pin GPIO_PIN_3

@@ -23,7 +23,7 @@
 /* Includes */
 #include <errno.h>
 #include <stdint.h>
-
+#include <memory.h>
 /**
  * Pointer to the current high watermark of the heap usage
  */
@@ -50,7 +50,7 @@ static uint8_t *__sbrk_heap_end = NULL;
  * @param incr Memory size
  * @return Pointer to allocated memory
  */
-void *_sbrk(ptrdiff_t incr)
+void *_sbrk(unsigned incr)
 {
   extern uint8_t _end; /* Symbol defined in the linker script */
   extern uint8_t _estack; /* Symbol defined in the linker script */

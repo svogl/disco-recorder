@@ -1,43 +1,18 @@
+# Disco recorder
 
 ```
-__        ___ _     _  ____                               
-\ \      / (_) | __| |/ ___|__ _ _ __ ___   ___ _ __ __ _ 
- \ \ /\ / /| | |/ _` | |   / _` | '_ ` _ \ / _ \ '__/ _` |
-  \ V  V / | | | (_| | |__| (_| | | | | | |  __/ | | (_| |
-   \_/\_/  |_|_|\__,_|\____\__,_|_| |_| |_|\___|_|  \__,_|
+ ____ ___ ____   ____ ___                             _           
+|  _ \_ _/ ___| / ___/ _ \ _ __ ___  ___ ___  _ __ __| | ___ _ __ 
+| | | | |\___ \| |  | | | | '__/ _ \/ __/ _ \| '__/ _` |/ _ \ '__|
+| |_| | | ___) | |__| |_| | | |  __/ (_| (_) | | | (_| |  __/ |   
+|____/___|____/ \____\___/|_|  \___|\___\___/|_|  \__,_|\___|_|   
 ```
 
+... an stm32n6-dk demo project to mangle camera streams to disk.
 
-```
- ____  _                 ____  _____ ____ 
-|  _ \(_)___  ___ ___   |  _ \| ____/ ___|
-| | | | / __|/ __/ _ \  | |_) |  _|| |    
-| |_| | \__ \ (_| (_) | |  _ <| |__| |___ 
-|____/|_|___/\___\___/  |_| \_\_____\____|
-```
-compiled file sizes 
+compiles with vscode + stmcubeide extension; stm32cubemx support as far as available.
 
-
-* empty project, default settings:
-
-```
-arm-none-eabi-objcopy  -O binary disco-rec_Appli.elf  "disco-rec_Appli.bin"
-   text	   data	    bss	    dec	    hex	filename
-   3252	     20	   2604	   5876	   16f4	disco-rec_Appli.elf
-```
-
-* + csi, dcmipp, venc (h264 mode) enabled
-```
-arm-none-eabi-objcopy  -O binary disco-rec_Appli.elf  "disco-rec_Appli.bin"
-   text	   data	    bss	    dec	    hex	filename
-  21624	     20	   2620	  24264	   5ec8	disco-rec_Appli.elf
-```
-
-* + ai core support + xspi
-```
-arm-none-eabi-objcopy  -O binary disco-rec_Appli.elf  "disco-rec_Appli.bin"
-   text	   data	    bss	    dec	    hex	filename
-  50920	     20	   2972	  53912	   d298	disco-rec_Appli.elf
-```
+Used the gettingstarted project as a reference.
+S
 
 

@@ -1,0 +1,9 @@
+[submodule "middleWare/stm32-mw-camera"]
+	path = middleWare/stm32-mw-camera
+	url = https://github.com/STMicroelectronics/stm32-mw-camera.git
+[submodule "middleWare/x-cube-isp"]
+	path = middleWare/x-cube-isp
+	url = https://github.com/STMicroelectronics/x-cube-isp.git
+[submodule "Appli/libs/stm32-mw-camera"]
+	path = Appli/libs/stm32-mw-camera
+	url = https://github.com/STMicroelectronics/stm32-mw-camera.git

@@ -37,6 +37,16 @@ extern "C" {
 /* Includes ------------------------------------------------------------------*/
 #include "stm32n6xx_hal.h"
 
+#include "stm32n6xx_ll_ucpd.h"
+#include "stm32n6xx_ll_bus.h"
+#include "stm32n6xx_ll_cortex.h"
+#include "stm32n6xx_ll_rcc.h"
+#include "stm32n6xx_ll_system.h"
+#include "stm32n6xx_ll_utils.h"
+#include "stm32n6xx_ll_pwr.h"
+#include "stm32n6xx_ll_gpio.h"
+#include "stm32n6xx_ll_dma.h"
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -77,12 +87,20 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define OSC_IN_Pin GPIO_PIN_0
 #define OSC_IN_GPIO_Port GPIOH
+#define SD_D0_Pin GPIO_PIN_4
+#define SD_D0_GPIO_Port GPIOC
 #define OSC_OUT_Pin GPIO_PIN_1
 #define OSC_OUT_GPIO_Port GPIOH
-#define VCP_TX_Pin GPIO_PIN_5
-#define VCP_TX_GPIO_Port GPIOE
-#define VCP_RX_Pin GPIO_PIN_6
-#define VCP_RX_GPIO_Port GPIOE
+#define SD_D1_Pin GPIO_PIN_5
+#define SD_D1_GPIO_Port GPIOC
+#define SD_D2_Pin GPIO_PIN_0
+#define SD_D2_GPIO_Port GPIOC
+#define SD_CK_Pin GPIO_PIN_2
+#define SD_CK_GPIO_Port GPIOC
+#define SD_D3_Pin GPIO_PIN_4
+#define SD_D3_GPIO_Port GPIOE
+#define SD_CMD_Pin GPIO_PIN_3
+#define SD_CMD_GPIO_Port GPIOC
 #define HEXASPI_IO_7_Pin GPIO_PIN_7
 #define HEXASPI_IO_7_GPIO_Port GPIOP
 #define HEXASPI_IO_6_Pin GPIO_PIN_6
