@@ -30,7 +30,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "app_config.h"
-
+#include "stm32n6570_discovery.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
