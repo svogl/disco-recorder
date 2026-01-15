@@ -19,9 +19,9 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "venc.h"
-#include <stdio.h>
 
 /* USER CODE BEGIN 0 */
+#include <stdio.h>
 // #include "ewl.h"
 // #include "h264encapi.h"
 #include "stm32n6xx_hal.h"

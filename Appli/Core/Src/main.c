@@ -21,7 +21,11 @@
 #include "cacheaxi.h"
 #include "csi.h"
 #include "dcmipp.h"
+#include "dma2d.h"
+#include "i2c.h"
+#include "ltdc.h"
 #include "sdmmc.h"
+#include "usart.h"
 #include "venc.h"
 #include "xspi.h"
 #include "xspim.h"
@@ -94,6 +98,11 @@ int main(void)
   MX_XSPI2_Init();
   MX_CACHEAXI_Init();
   MX_SDMMC2_SD_Init();
+  MX_UART4_Init();
+  MX_I2C1_Init();
+  MX_I2C2_Init();
+  MX_LTDC_Init();
+  MX_DMA2D_Init();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
