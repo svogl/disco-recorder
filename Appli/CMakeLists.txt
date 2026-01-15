@@ -63,7 +63,9 @@ include_directories( ${MX_Include_Dirs}
     ${CMAKE_CURRENT_SOURCE_DIR}/drv/stm32n6xx-hal-driver/Inc
     # isp headers have been dropped from this directory as it's 1.3 now:
     ${CMAKE_CURRENT_SOURCE_DIR}/drv/stm32n6570-dk-bsp-local
-    ${CMAKE_CURRENT_SOURCE_DIR}/stm32n6570-dk-bsp 
+    ${CMAKE_CURRENT_SOURCE_DIR}/drv/stm32n6570-dk-bsp 
+    ${CMAKE_CURRENT_SOURCE_DIR}/libs/stm32-mw-venc-ewl
+    ${CMAKE_CURRENT_SOURCE_DIR}/libs/VideoEncoder/inc
     )
 message("BSP " ${CMAKE_CURRENT_SOURCE_DIR}/Appli/drv/stm32n6570-dk-bsp)
 
@@ -79,7 +81,9 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
 target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user defined library search paths
 )
-set(MX_LINK_LIBS ${MX_LINK_LIBS}     hal bsp isp-mw camera-mw
+
+# append local libraries
+set(MX_LINK_LIBS ${MX_LINK_LIBS}  hal bsp isp-mw camera-mw venc
     )
 
 # Add linked libraries

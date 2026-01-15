@@ -39,3 +39,35 @@ target_include_directories(camera-mw PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/stm32-mw-camera/sensors/vd55g1
     ${CMAKE_CURRENT_SOURCE_DIR}/stm32-mw-camera/sensors/vd6g
     )
+
+add_library(venc
+    stm32-mw-venc-ewl/ewl_impl.c
+    VideoEncoder/source/h264/H264SequenceParameterSet.c
+    VideoEncoder/source/h264/H264PictureBuffer.c
+    VideoEncoder/source/h264/H264CodeFrame.c
+    VideoEncoder/source/h264/H264Mad.c
+    VideoEncoder/source/h264/H264Sei.c
+    VideoEncoder/source/h264/H264NalUnit.c
+    VideoEncoder/source/h264/H264PutBits.c
+    VideoEncoder/source/h264/H264EncApi.c
+    VideoEncoder/source/h264/H264Slice.c
+    VideoEncoder/source/h264/H264TestId.c
+    VideoEncoder/source/h264/H264RateControl.c
+    VideoEncoder/source/h264/h264encapi_ext.c
+    VideoEncoder/source/h264/H264Init.c
+    VideoEncoder/source/h264/H264Denoise.c
+    VideoEncoder/source/h264/H264PictureParameterSet.c
+    VideoEncoder/source/h264/H264Cabac.c
+    VideoEncoder/source/common/encasiccontroller_v2.c
+    VideoEncoder/source/common/encswhwregisters.c
+    VideoEncoder/source/common/encpreprocess.c
+    VideoEncoder/source/common/encasiccontroller.c
+    VideoEncoder/source/common/encInputLineBuffer.c
+    )
+
+target_include_directories(venc PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/stm32-mw-venc-ewl
+    ${CMAKE_CURRENT_SOURCE_DIR}/VideoEncoder/inc
+    ${CMAKE_CURRENT_SOURCE_DIR}/VideoEncoder/source/h264
+    ${CMAKE_CURRENT_SOURCE_DIR}/VideoEncoder/source/common
+    )
