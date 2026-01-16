@@ -182,15 +182,15 @@ void CameraPipeline_IspUpdate(void)
   */
 int CMW_CAMERA_PIPE_FrameEventCallback(uint32_t pipe)
 {
-  int ret;
+  // int ret;
 
   switch (pipe)
   {
     case DCMIPP_PIPE2 :
       cameraFrameReceived++;
 
-      ret = SRCL_Update();
-      assert(ret == 0);
+      // ret = SRCL_Update();
+      // assert(ret == 0);
       break;
   }
   return 0;

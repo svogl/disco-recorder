@@ -18,15 +18,15 @@ add_library(camera-mw
     stm32-mw-camera/cmw_utils.c
 
     stm32-mw-camera/sensors/cmw_imx335.c
-#    stm32-mw-camera/sensors/cmw_vd55g1.c
-#    stm32-mw-camera/sensors/cmw_vd66gy.c
+    #stm32-mw-camera/sensors/cmw_vd55g1.c
+    #stm32-mw-camera/sensors/cmw_vd66gy.c
 
     stm32-mw-camera/sensors/imx335/imx335.c
     stm32-mw-camera/sensors/imx335/imx335_reg.c
-    # stm32-mw-camera/sensors/vd55g1/vd55g1.c
+    #stm32-mw-camera/sensors/vd55g1/vd55g1.c
     # stm32-mw-camera/sensors/vd55g1/vd55g1_patch_cut_1.c
     # stm32-mw-camera/sensors/vd55g1/vd55g1_patch_cut_2.c
-    # stm32-mw-camera/sensors/vd6g/vd6g.c
+    #stm32-mw-camera/sensors/vd6g/vd6g.c
     # stm32-mw-camera/sensors/vd6g/vd6g_patch.c
     # stm32-mw-camera/sensors/vd6g/vd6g_vtpatch.c
     )

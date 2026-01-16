@@ -5,4 +5,5 @@
 
 extern void camera_init();
 
+extern int32_t cameraFrameReceived; ///< counter
 #endif
