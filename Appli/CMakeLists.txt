@@ -39,7 +39,6 @@ add_executable(${CMAKE_PROJECT_NAME})
 # Include mx-generated
 include("mx-generated.cmake")
 
-
 # In order to use CMake for cross-compiling
 set(CMAKE_CXX_COMPILER_FORCED "true")
 
@@ -59,15 +58,18 @@ target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
 # middlewares and libraries
 # main include path for common library header configs 
 add_definitions( -DSTM32N657xx )
-include_directories( ${MX_Include_Dirs}
+# Order: make sure the updated headers are used before the CubeMX ones
+include_directories( BEFORE
     ${CMAKE_CURRENT_SOURCE_DIR}/drv/stm32n6xx-hal-driver/Inc
     # isp headers have been dropped from this directory as it's 1.3 now:
     ${CMAKE_CURRENT_SOURCE_DIR}/drv/stm32n6570-dk-bsp-local
     ${CMAKE_CURRENT_SOURCE_DIR}/drv/stm32n6570-dk-bsp 
     ${CMAKE_CURRENT_SOURCE_DIR}/libs/stm32-mw-venc-ewl
     ${CMAKE_CURRENT_SOURCE_DIR}/libs/VideoEncoder/inc
+    ${CMAKE_CURRENT_SOURCE_DIR}/libs/stm32-mw-fatfs/source
+    ${CMAKE_CURRENT_SOURCE_DIR}/Core/app
+     ${MX_Include_Dirs}
     )
-message("BSP " ${CMAKE_CURRENT_SOURCE_DIR}/Appli/drv/stm32n6570-dk-bsp)
 
 add_subdirectory(drv)
 add_subdirectory(libs)
@@ -75,20 +77,21 @@ add_subdirectory(libs)
 # Add sources to executable
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user sources here
+    ${CMAKE_CURRENT_SOURCE_DIR}/Core/app/venc_interface.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/Core/app/sd_interface.c
 )
+
+#
+# .. remove the 'PRIVATE' keyword...
+# 
 
 # Link directories setup
 target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user defined library search paths
 )
 
-# append local libraries
-set(MX_LINK_LIBS ${MX_LINK_LIBS}  hal bsp isp-mw camera-mw venc
-    )
-
-# Add linked libraries
-target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE
-    # Add user defined libraries
+target_link_libraries(${CMAKE_PROJECT_NAME} 
+    hal bsp isp-mw camera-mw venc
 )
 
 # Remove wrong libob.a library dependency when using cpp files

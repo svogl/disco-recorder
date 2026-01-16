@@ -31,3 +31,6 @@
 [submodule "Appli/drv/Components/gt911"]
 	path = Appli/drv/Components/gt911
 	url = https://github.com/STMicroelectronics/stm32-gt911.git
+[submodule "Appli/libs/stm32-mw-fatfs"]
+	path = Appli/libs/stm32-mw-fatfs
+	url = https://github.com/STMicroelectronics/stm32-mw-fatfs.git

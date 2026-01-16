@@ -25,6 +25,7 @@
 #include "i2c.h"
 #include "ltdc.h"
 #include "sdmmc.h"
+#include "stm32n6xx_hal.h"
 #include "usart.h"
 #include "venc.h"
 #include "xspi.h"
@@ -133,6 +134,8 @@ void Error_Handler(void)
   __disable_irq();
   while (1)
   {
+    BSP_LED_Toggle(LED1);
+    HAL_Delay(1000);
   }
   /* USER CODE END Error_Handler_Debug */
 }

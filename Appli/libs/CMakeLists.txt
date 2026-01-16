@@ -71,3 +71,26 @@ target_include_directories(venc PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/VideoEncoder/source/h264
     ${CMAKE_CURRENT_SOURCE_DIR}/VideoEncoder/source/common
     )
+
+add_library(fatfs
+    stm32-mw-fatfs/source/ff.c
+    stm32-mw-fatfs/source/ffunicode.c
+    stm32-mw-fatfs/source/ff_gen_drv.c
+    stm32-mw-fatfs/source/ffsystem_template.c
+
+    stm32-mw-fatfs/source/ffsystem_baremetal.c
+#    stm32-mw-fatfs/source/drivers/usb_host/usbh_diskio.c
+#    stm32-mw-fatfs/source/drivers/sram/sram_diskio.c
+#    stm32-mw-fatfs/source/drivers/template/user_diskio.c
+    stm32-mw-fatfs/source/drivers/sd/sd_diskio.c
+#    stm32-mw-fatfs/source/drivers/sd/sd_diskio_dma_rtos.c
+    stm32-mw-fatfs/source/drivers/sd/sd_diskio_dma_standalone.c
+    stm32-mw-fatfs/source/ffsystem_cmsis_os.c
+    stm32-mw-fatfs/source/diskio.c
+    )
+
+target_include_directories(fatfs PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/../Core/Inc
+    ${CMAKE_CURRENT_SOURCE_DIR}/stm32-mw-fatfs/source
+    ${CMAKE_CURRENT_SOURCE_DIR}/stm32-mw-fatfs/source/drivers
+    )
