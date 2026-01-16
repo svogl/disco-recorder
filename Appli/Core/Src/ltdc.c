@@ -64,7 +64,7 @@ void MX_LTDC_Init(void)
   pLayerCfg.WindowX1 = 0;
   pLayerCfg.WindowY0 = 0;
   pLayerCfg.WindowY1 = 0;
-  pLayerCfg.PixelFormat = LTDC_PIXEL_FORMAT_ARGB8888;
+  pLayerCfg.PixelFormat = LTDC_PIXEL_FORMAT_RGB565;
   pLayerCfg.Alpha = 0;
   pLayerCfg.Alpha0 = 0;
   pLayerCfg.BlendingFactor1 = LTDC_BLENDING_FACTOR1_CA;
@@ -83,7 +83,7 @@ void MX_LTDC_Init(void)
   pLayerCfg1.WindowX1 = 0;
   pLayerCfg1.WindowY0 = 0;
   pLayerCfg1.WindowY1 = 0;
-  pLayerCfg1.PixelFormat = LTDC_PIXEL_FORMAT_ARGB8888;
+  pLayerCfg1.PixelFormat = LTDC_PIXEL_FORMAT_RGB888;
   pLayerCfg1.Alpha = 0;
   pLayerCfg1.Alpha0 = 0;
   pLayerCfg1.BlendingFactor1 = LTDC_BLENDING_FACTOR1_CA;

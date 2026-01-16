@@ -68,6 +68,9 @@ include_directories( BEFORE
     ${CMAKE_CURRENT_SOURCE_DIR}/libs/VideoEncoder/inc
     ${CMAKE_CURRENT_SOURCE_DIR}/libs/stm32-mw-fatfs/source
     ${CMAKE_CURRENT_SOURCE_DIR}/Core/app
+    ${CMAKE_CURRENT_SOURCE_DIR}/libs/stm32-mw-camera
+    ${CMAKE_CURRENT_SOURCE_DIR}/libs/stm32-mw-camera/sensors
+    ${CMAKE_CURRENT_SOURCE_DIR}/libs/stm32-mw-isp/isp/Inc
      ${MX_Include_Dirs}
     )
 
@@ -76,7 +79,11 @@ add_subdirectory(libs)
 
 # Add sources to executable
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE
+    # STM additional sources
+    ${CMAKE_CURRENT_SOURCE_DIR}/Core/Src/app_camerapipeline.c
     # Add user sources here
+    ${CMAKE_CURRENT_SOURCE_DIR}/Core/app/fsm.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/Core/app/camera_subsys.c
     ${CMAKE_CURRENT_SOURCE_DIR}/Core/app/venc_interface.c
     ${CMAKE_CURRENT_SOURCE_DIR}/Core/app/sd_interface.c
 )

@@ -1,9 +1,9 @@
 /* USER CODE BEGIN Header */
 /**
   ******************************************************************************
-  * @file    mdf.h
-  * @brief   This file contains all the function prototypes for
-  *          the mdf.c file
+  * @file    icache.c
+  * @brief   This file provides code for the configuration
+  *          of the ICACHE instances.
   ******************************************************************************
   * @attention
   *
@@ -17,38 +17,30 @@
   ******************************************************************************
   */
 /* USER CODE END Header */
-/* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __MDF_H__
-#define __MDF_H__
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 /* Includes ------------------------------------------------------------------*/
-#include "main.h"
+#include "icache.h"
 
-/* USER CODE BEGIN Includes */
+/* USER CODE BEGIN 0 */
 
-/* USER CODE END Includes */
+/* USER CODE END 0 */
 
-extern MDF_HandleTypeDef MdfHandle0;
+/* ICACHE init function */
+void MX_ICACHE_Init(void)
+{
 
-extern MDF_FilterConfigTypeDef MdfFilterConfig0;
+  /* USER CODE BEGIN ICACHE_Init 0 */
 
-/* USER CODE BEGIN Private defines */
+  /* USER CODE END ICACHE_Init 0 */
 
-/* USER CODE END Private defines */
+  /* USER CODE BEGIN ICACHE_Init 1 */
 
-void MX_MDF1_Init(void);
+  /* USER CODE END ICACHE_Init 1 */
+  /* USER CODE BEGIN ICACHE_Init 2 */
 
-/* USER CODE BEGIN Prototypes */
+  /* USER CODE END ICACHE_Init 2 */
 
-/* USER CODE END Prototypes */
-
-#ifdef __cplusplus
 }
-#endif
 
-#endif /* __MDF_H__ */
+/* USER CODE BEGIN 1 */
 
+/* USER CODE END 1 */

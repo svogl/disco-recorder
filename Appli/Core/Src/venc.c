@@ -18,16 +18,9 @@
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
-#include <stdio.h>
 #include "venc.h"
 
-#include "app_config.h"
-#include "venc_interface.h"
-
-// Input buffer allocated in PSRAM
-__attribute__ ((section (".psram_bss")))
-__attribute__ ((aligned (32)))
-uint32_t vin_buffer[VENC_WIDTH*VENC_HEIGHT*2];
+/* USER CODE BEGIN 0 */
 
 /* USER CODE END 0 */
 

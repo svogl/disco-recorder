@@ -1,9 +1,9 @@
 /* USER CODE BEGIN Header */
 /**
   ******************************************************************************
-  * @file    sdmmc.h
+  * @file    icache.h
   * @brief   This file contains all the function prototypes for
-  *          the sdmmc.c file
+  *          the icache.c file
   ******************************************************************************
   * @attention
   *
@@ -18,8 +18,8 @@
   */
 /* USER CODE END Header */
 /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef __SDMMC_H__
-#define __SDMMC_H__
+#ifndef __ICACHE_H__
+#define __ICACHE_H__
 
 #ifdef __cplusplus
 extern "C" {
@@ -29,16 +29,14 @@ extern "C" {
 #include "main.h"
 
 /* USER CODE BEGIN Includes */
-#include <stdio.h>
-/* USER CODE END Includes */
 
-extern SD_HandleTypeDef hsd2;
+/* USER CODE END Includes */
 
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
 
-void MX_SDMMC2_SD_Init(void);
+void MX_ICACHE_Init(void);
 
 /* USER CODE BEGIN Prototypes */
 
@@ -48,5 +46,5 @@ void MX_SDMMC2_SD_Init(void);
 }
 #endif
 
-#endif /* __SDMMC_H__ */
+#endif /* __ICACHE_H__ */
 

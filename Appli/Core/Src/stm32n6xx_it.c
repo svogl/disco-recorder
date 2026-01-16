@@ -22,6 +22,7 @@
 #include "stm32n6xx_it.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include <stdio.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -55,6 +56,7 @@
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
+extern SD_HandleTypeDef hsd2;
 extern DCMIPP_HandleTypeDef hdcmipp;
 /* USER CODE BEGIN EV */
 
@@ -223,8 +225,23 @@ void DCMIPP_IRQHandler(void)
   /* USER CODE END DCMIPP_IRQn 0 */
   HAL_DCMIPP_IRQHandler(&hdcmipp);
   /* USER CODE BEGIN DCMIPP_IRQn 1 */
-
+printf("Idcmipp\r\n");
   /* USER CODE END DCMIPP_IRQn 1 */
+}
+
+/**
+  * @brief This function handles SDMMC2 global interrupt.
+  */
+void SDMMC2_IRQHandler(void)
+{
+  /* USER CODE BEGIN SDMMC2_IRQn 0 */
+
+  /* USER CODE END SDMMC2_IRQn 0 */
+  HAL_SD_IRQHandler(&hsd2);
+  /* USER CODE BEGIN SDMMC2_IRQn 1 */
+printf("Isdmmc\r\n");
+
+  /* USER CODE END SDMMC2_IRQn 1 */
 }
 
 /**
@@ -237,6 +254,7 @@ void CSI_IRQHandler(void)
   /* USER CODE END CSI_IRQn 0 */
   HAL_DCMIPP_CSI_IRQHandler(&hdcmipp);
   /* USER CODE BEGIN CSI_IRQn 1 */
+printf("Icsi\r\n");
 
   /* USER CODE END CSI_IRQn 1 */
 }

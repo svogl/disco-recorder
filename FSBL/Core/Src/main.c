@@ -20,7 +20,6 @@
 #include "main.h"
 #include "adc.h"
 #include "i2c.h"
-#include "mdf.h"
 #include "sai.h"
 #include "sdmmc.h"
 #include "ucpd.h"
@@ -96,7 +95,6 @@ int main(void)
   MX_ADC1_Init();
   MX_I2C1_Init();
   MX_I2C2_Init();
-  MX_MDF1_Init();
   MX_SAI1_Init();
   MX_SDMMC2_SD_Init();
   MX_UCPD1_Init();
@@ -216,7 +214,7 @@ void SystemClock_Config(void)
                               |RCC_CLOCKTYPE_PCLK4;
   RCC_ClkInitStruct.CPUCLKSource = RCC_CPUCLKSOURCE_IC1;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_IC2_IC6_IC11;
-  RCC_ClkInitStruct.AHBCLKDivider = RCC_HCLK_DIV2;
+  RCC_ClkInitStruct.AHBCLKDivider = RCC_HCLK_DIV4;
   RCC_ClkInitStruct.APB1CLKDivider = RCC_APB1_DIV1;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_APB2_DIV1;
   RCC_ClkInitStruct.APB4CLKDivider = RCC_APB4_DIV1;
