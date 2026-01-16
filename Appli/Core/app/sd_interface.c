@@ -4,7 +4,7 @@
 
 #include "sd_interface.h"
 
-#if USE_FATFS
+#if USE_FS == USE_FATFS
 #include "ff.h"
 
 // file saving code:
@@ -36,8 +36,12 @@ int save_stream( uint32_t * buf, size_t size)
     printf("wrote %d\r\n", written);
     return (written == size) ? 0 : FR_INT_ERR;
 }
+#elif USE_FS == USE_FILEX
+
+#error TODO: FileX save_stream not implemented
 
 #else
+
 int save_stream( uint32_t * buf, size_t size)
 { 
     // never fail, return number of bytes "saved"

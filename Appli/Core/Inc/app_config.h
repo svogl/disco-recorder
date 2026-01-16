@@ -1,6 +1,7 @@
 #ifndef _APP_CONFIG_H_
 #define _APP_CONFIG_H_
 
+
 #define VENC_WIDTH   800
 #define VENC_HEIGHT  480
 
