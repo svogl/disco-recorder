@@ -22,6 +22,7 @@
 #include "csi.h"
 #include "dcmipp.h"
 #include "dma2d.h"
+#include "fsm.h"
 #include "i2c.h"
 #include "icache.h"
 #include "ltdc.h"
@@ -36,6 +37,7 @@
 /* USER CODE BEGIN Includes */
 #include "app_config.h"
 #include "stm32n6570_discovery.h"
+#include "stm32n6570_discovery_xspi.h"
 #include "camera_subsys.h"
 /* USER CODE END Includes */
 
@@ -87,6 +89,17 @@ int main(void)
 
   /* USER CODE BEGIN Init */
 
+  /*** External RAM and NOR Flash *********************************************/
+  BSP_XSPI_RAM_Init(0);
+  BSP_XSPI_RAM_EnableMemoryMappedMode(0);
+
+  BSP_XSPI_NOR_Init_t NOR_Init;
+  NOR_Init.InterfaceMode = BSP_XSPI_NOR_OPI_MODE;
+  NOR_Init.TransferRate = BSP_XSPI_NOR_DTR_TRANSFER;
+  BSP_XSPI_NOR_Init(0, &NOR_Init);
+  BSP_XSPI_NOR_EnableMemoryMappedMode(0);
+
+  /** buttons & co */
   BSP_PB_Init(BUTTON_USER1, BUTTON_MODE_EXTI);
   BSP_PB_Init(BUTTON_TAMP, BUTTON_MODE_EXTI);
 
@@ -139,8 +152,14 @@ int main(void)
   SystemIsolation_Config();
   /* USER CODE BEGIN 2 */
 
+  // set up FSMs
   camera_init();
 
+  // initialize components
+  camera_fsm()->on_event ( camera_fsm(),EVENT_INIT);
+
+
+  // play games
   HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, 1);
   /* USER CODE END 2 */
 
@@ -157,6 +176,8 @@ int main(void)
   sWKUPConfigs.PinPull     = PWR_PIN_PULL_DOWN; ;
   /* Enable the Wake-up pin functionality */
   HAL_PWREx_EnableWakeUpPin(&sWKUPConfigs);
+
+  camera_fsm()->on_event ( camera_fsm(),EVENT_START);
 
   
   printf("%s:%d beep\r\n", __func__, __LINE__);

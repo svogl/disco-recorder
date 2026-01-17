@@ -98,7 +98,7 @@ target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
 )
 
 target_link_libraries(${CMAKE_PROJECT_NAME} 
-    hal bsp isp-mw camera-mw venc
+    hal bsp isp-mw camera-mw venc fatfs components
 )
 
 # Remove wrong libob.a library dependency when using cpp files

@@ -11,14 +11,14 @@
 
 int32_t cameraFrameReceived=0;
 
-static fsm_t camera_fsm;
+static fsm_t camera_instance;
 
-uint32_t cam_buffer[CAM_WIDTH * CAM_HEIGHT * NN_BPP / 4];
+char cam_buffer[CAM_WIDTH * CAM_HEIGHT * 2];
 
 void cam_init()
 {
     printf("Camera subsystem initialized\n");
-    FSM_NEW_STATE(&camera_fsm, STATE_IDLE);
+    FSM_NEW_STATE(&camera_instance, STATE_IDLE);
     int pitch_nn = 0;
     uint32_t widths[2] = { CAM_WIDTH, CAM_WIDTH };
     uint32_t heights[2] = { CAM_HEIGHT, CAM_HEIGHT };      
@@ -29,14 +29,14 @@ void cam_init()
 void cam_wakeup()
 {
     printf("Camera subsystem wakeup executed\n");
-    FSM_NEW_STATE(&camera_fsm, STATE_PROCESSING);
+    FSM_NEW_STATE(&camera_instance, STATE_PROCESSING);
     /* Start LCD Display camera pipe stream */
     CameraPipeline_DisplayPipe_Start(cam_buffer, CMW_MODE_CONTINUOUS);
 }
 void cam_tosleep()
 {
     printf("Camera subsystem to sleep executed\n");
-    FSM_NEW_STATE(&camera_fsm, STATE_SLEEPING);
+    FSM_NEW_STATE(&camera_instance, STATE_SLEEPING);
     CameraPipeline_DisplayPipe_Stop();
 }
 
@@ -50,6 +50,7 @@ void cam_step()
 
 
 /** FSM implementation:  */
+extern fsm_t* camera_fsm() { return &camera_instance;}
 
 void camera_event(fsm_t * self, int event) {
     switch (event) {
@@ -57,6 +58,7 @@ void camera_event(fsm_t * self, int event) {
             cam_init();
             break;
         case EVENT_WAKEUP:
+        case EVENT_START:
             cam_wakeup();
             break;
         default:   
@@ -67,6 +69,5 @@ void camera_event(fsm_t * self, int event) {
 
 void camera_init()
 {
-    init_fsm(&camera_fsm,STATE_UNKNOWN, camera_event, &fsm_new_state);
-
+    init_fsm(&camera_instance,STATE_UNKNOWN, camera_event, &fsm_new_state);
 }

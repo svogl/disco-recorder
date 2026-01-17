@@ -136,3 +136,4 @@ target_include_directories(bsp PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/../libs/stm32-mw-isp/isp/Inc
 )
 
+add_subdirectory(Components)

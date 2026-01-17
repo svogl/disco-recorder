@@ -12,8 +12,9 @@ enum state {
 
 enum event {
     EVENT_INIT,   // first time init after power-up
-    EVENT_WAKEUP, // go to sleep
-    EVENT_SLEEP,  // called after wake up from low-power state
+    EVENT_SLEEP, // go to sleep
+    EVENT_WAKEUP,  // called after wake up from low-power state
+    EVENT_START,  // called to start processing
     EVENT_STEP,   // optional - performe one operation step
     EVENT_ERROR_OCCURED, // error. stop.
     EVENT_RESET   // go to uninitialized, restart from 0
